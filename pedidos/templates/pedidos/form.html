@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="card" style="max-width:500px;">
+    <h2>Novo pedido</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Produto</label>
+            <select name="produto" required>
+                {% for produto in produtos %}
+                    <option value="{{ produto.id }}">{{ produto.nome }} — R$ {{ produto.preco }} ({{ produto.quantidade_estoque }} em estoque)</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Quantidade</label>
+            <input type="number" name="quantidade" min="1" required>
+        </div>
+        <button type="submit" class="btn">Fazer pedido</button>
+        <a href="/pedidos/" style="margin-left:12px; font-size:14px; color:#666;">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

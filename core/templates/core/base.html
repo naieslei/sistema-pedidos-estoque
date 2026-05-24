@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockOrder</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        nav { background: #1a73e8; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
+        nav a { color: white; text-decoration: none; margin-right: 20px; font-size: 14px; }
+        nav span { color: white; font-size: 14px; }
+        .container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+        .card { background: white; border-radius: 8px; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+        .btn { display: inline-block; padding: 8px 16px; background: #1a73e8; color: white; border-radius: 6px; text-decoration: none; font-size: 14px; border: none; cursor: pointer; }
+        .btn-danger { background: #e53935; }
+        table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        th { text-align: left; padding: 10px 12px; font-size: 13px; color: #666; border-bottom: 1px solid #eee; }
+        td { padding: 10px 12px; font-size: 14px; border-bottom: 1px solid #eee; }
+        .badge { padding: 3px 10px; border-radius: 12px; font-size: 12px; }
+        .badge-green { background: #e8f5e9; color: #2e7d32; }
+        .badge-yellow { background: #fff8e1; color: #f57f17; }
+        .badge-red { background: #ffebee; color: #c62828; }
+        .badge-blue { background: #e3f2fd; color: #1565c0; }
+        input, select { width: 100%; padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; margin-top: 6px; }
+        label { font-size: 13px; color: #555; }
+        .form-group { margin-bottom: 16px; }
+        h2 { font-size: 20px; font-weight: 500; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="/estoque/">Estoque</a>
+            <a href="/pedidos/">Pedidos</a>
+        </div>
+        <div>
+            <span>Olá, {{ request.user.username }}</span>
+            <a href="/logout/" style="margin-left:20px;">Sair</a>
+        </div>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login — StockOrder</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .card { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); width: 360px; }
+        h2 { text-align: center; margin-bottom: 24px; font-size: 22px; color: #1a73e8; }
+        label { font-size: 13px; color: #555; display: block; margin-bottom: 4px; }
+        input { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; margin-bottom: 16px; }
+        button { width: 100%; padding: 10px; background: #1a73e8; color: white; border: none; border-radius: 6px; font-size: 15px; cursor: pointer; }
+        .erro { color: #c62828; font-size: 13px; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>StockOrder</h2>
+        {% if form.errors %}
+            <p class="erro">Usuário ou senha incorretos.</p>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            <label>Usuário</label>
+            <input type="text" name="username" autofocus>
+            <label>Senha</label>
+            <input type="password" name="password">
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>
